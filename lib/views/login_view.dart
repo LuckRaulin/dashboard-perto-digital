@@ -16,12 +16,48 @@ class LoginView extends StatelessWidget {
             color: ConstantColors.greenPerto,
             child: ContentLogin(),
           );
+        } else if (constraints.maxWidth > 1100) {
+          return LoginBackground(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextContainer(),
+                ContainerLogin(),
+              ],
+            ),
+          );
         } else {
           return LoginBackground(
             child: ContainerLogin(),
           );
         }
       }),
+    );
+  }
+}
+
+class TextContainer extends StatelessWidget {
+  const TextContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 400,
+      height: 400,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Text(
+            'Faça seu login na plataforma.',
+            style: TextStyle(
+              color: ConstantColors.azulCinza,
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -152,7 +188,9 @@ class _ContentLoginState extends State<ContentLogin> {
           child: LoginButton(),
           onTap: () {
             if (_formKey.currentState!.validate()) {
-              returnSnackbar(context, 'Autorizado!');
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/dashboard', (route) => false);
+              //returnSnackbar(context, 'Autorizado!');
             } else {}
           },
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:perto_digital_dashboard/constants/colors.dart';
+import 'package:perto_digital_dashboard/views/dashboard_view.dart';
 import 'package:perto_digital_dashboard/views/login_view.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class App extends StatelessWidget {
       ),
       routes: {
         '/login': (context) => LoginView(),
-        '/dashboard': (context) => Material(),
+        '/dashboard': (context) => DashboardView(),
         '/': (context) => Material(),
       },
       initialRoute: '/login',

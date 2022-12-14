@@ -9,9 +9,7 @@ class ResponsiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Scaffold(
-          
-        );
+        return Scaffold();
       },
     );
   }
